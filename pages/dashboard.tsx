@@ -10,30 +10,28 @@ import { set, ref, onValue, remove, update } from "firebase/database";
 const inter = Inter({ subsets: ["latin"] });
 import styles from "@/styles/Home.module.css";
 function Dashboard() {
-  const [userInfo, setUserInfo] = useState({ name: "", email: "" });
+  // const [userInfo, setUserInfo] = useState({ name: "", email: "" });
   // const [userName, setUserName] = useState("");
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
-  // const [isEdit, setIsEdit] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
   const [tempUidd, setTempUidd] = useState("");
   const router = useRouter();
 
-  const user = useSelector((state: state.user) => state.user);
+  type userData = {
+    user: {
+      user: {
+        name: string;
+        email: string;
+      };
+    };
+  };
+
+  const user: { user: { name: string; email: string } } = useSelector(
+    (state: userData) => state.user
+  );
+  console.log(user, "dsfdsfdsfdsfsdfsf");
   console.log(user.user, "user name");
-
-  useEffect(() => {
-    if (typeof user.name !== "undefined") {
-      // Access and use local storage here
-      // For example:
-      localStorage.setItem("username", JSON.stringify(user));
-      const userinfo = localStorage.getItem("username");
-      console.log(userinfo);
-      // setUserInfo(userinfo);
-
-      setUserInfo(JSON.parse(userinfo));
-    }
-  }, []);
-  console.log(userInfo);
 
   const handleSignout = async () => {
     try {
@@ -131,15 +129,18 @@ function Dashboard() {
             >
               Delete
             </button>
-            <button
-              className={styles.addButton}
-              onClick={() => handleEdit(todo)}
-            >
-              Edit
-            </button>
-            <button className={styles.addButton} onClick={handleEditConfirm}>
-              Update
-            </button>
+            {!isEdit ? (
+              <button
+                className={styles.addButton}
+                onClick={() => handleEdit(todo)}
+              >
+                Edit
+              </button>
+            ) : (
+              <button className={styles.addButton} onClick={handleEditConfirm}>
+                Update
+              </button>
+            )}
           </div>
         </div>
       ))}
