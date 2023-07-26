@@ -115,12 +115,18 @@ export default function Home() {
           <h1>Login Page</h1>
           <div className={styles.googleButtonContainer}>
             {/* google */}
-            <button
+            <div
               className={styles.googleButton}
               onClick={handleSignInWithGoogle}
             >
-              Login with Google
-            </button>
+              <img
+                className={styles.googleLogo}
+                src={`/GoogleLogo.png`}
+                alt=""
+                height="35px"
+              />
+              <button>Login with Google</button>
+            </div>
           </div>
           {/* email and password */}
           <div className={styles.emailAuth}>

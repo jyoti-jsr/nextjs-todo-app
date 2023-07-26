@@ -15,6 +15,15 @@
 .googleButton {
   height: 50px;
   width: 100%;
+  border: 1px soild red;
+  background-color: #6b6b6b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.googleLogo {
+  padding-right: 10px;
 }
 .emailAuth {
   border: 2px solid dodgerblue;
@@ -87,6 +96,10 @@
   height: 50px;
   width: 300px;
   cursor: pointer;
+}
+.googleLogo {
+  /* position: absolute;
+  left: 300px; */
 }
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {

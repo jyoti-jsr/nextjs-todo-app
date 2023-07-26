@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { Inter } from "next/font/google";
 import { uid } from "uid";
 import { set, ref, onValue, remove, update } from "firebase/database";
-import { json } from "stream/consumers";
+
 const inter = Inter({ subsets: ["latin"] });
 import styles from "@/styles/Home.module.css";
 function dashboard() {
