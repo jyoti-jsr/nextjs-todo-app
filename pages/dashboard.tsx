@@ -9,12 +9,12 @@ import { set, ref, onValue, remove, update } from "firebase/database";
 
 const inter = Inter({ subsets: ["latin"] });
 import styles from "@/styles/Home.module.css";
-function dashboard() {
+function Dashboard() {
   const [userInfo, setUserInfo] = useState({ name: "", email: "" });
-  const [userName, setUserName] = useState("");
+  // const [userName, setUserName] = useState("");
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
-  const [isEdit, setIsEdit] = useState(false);
+  // const [isEdit, setIsEdit] = useState(false);
   const [tempUidd, setTempUidd] = useState("");
   const router = useRouter();
 
@@ -151,4 +151,4 @@ function dashboard() {
   );
 }
 
-export default dashboard;
+export default Dashboard;
