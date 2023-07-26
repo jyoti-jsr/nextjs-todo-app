@@ -10,8 +10,7 @@ import { json } from "stream/consumers";
 const inter = Inter({ subsets: ["latin"] });
 import styles from "@/styles/Home.module.css";
 function dashboard() {
-  type userinfo = { name: string; email: string };
-  const [userInfo, setUserInfo] = useState<userinfo | string>("");
+  const [userInfo, setUserInfo] = useState({ name: "", email: "" });
   const [userName, setUserName] = useState("");
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
@@ -30,12 +29,12 @@ function dashboard() {
       localStorage.setItem("username", JSON.stringify(user));
       const userinfo = localStorage.getItem("username");
       console.log(userinfo);
+      // setUserInfo(userinfo);
+
       setUserInfo(JSON.parse(userinfo));
     }
   }, []);
   console.log(userInfo);
-  // const userinfo = localStorage.getItem("username");
-  // console.log(userinfo);
 
   const handleSignout = async () => {
     try {
