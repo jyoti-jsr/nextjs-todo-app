@@ -17,10 +17,9 @@ function dashboard() {
   const [isEdit, setIsEdit] = useState(false);
   const [tempUidd, setTempUidd] = useState("");
   const router = useRouter();
-  const user = useSelector(
-    (state: { user: { name: string; email: string } }) => state.user
-  );
-  console.log(user, "user name");
+
+  const user = useSelector((state: state.user) => state.user);
+  console.log(user.user, "user name");
 
   useEffect(() => {
     if (typeof user.name !== "undefined") {
@@ -103,7 +102,7 @@ function dashboard() {
 
   return (
     <div className={`${styles.main} ${inter.className}`}>
-      <h1 className={styles.userInfo}>User Name : {userInfo?.name}</h1>
+      <h1 className={styles.userInfo}>User Name : {user.user.name}</h1>
       <div className={styles.inputAddBox}>
         <input
           className={styles.input}
